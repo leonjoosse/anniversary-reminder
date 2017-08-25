@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration
 
 @SpringBootApplication(exclude = arrayOf(RepositoryRestMvcAutoConfiguration::class))
-class PaApplication
+class AnniversaryReminderApplication
 
 fun main(args: Array<String>) {
-    SpringApplication.run(PaApplication::class.java, *args)
+    SpringApplication.run(AnniversaryReminderApplication::class.java, *args)
 }
