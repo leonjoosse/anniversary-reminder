@@ -6,16 +6,16 @@ import javax.websocket.server.PathParam
 
 @RestController
 @RequestMapping(value = "/anniversary", produces = arrayOf("application/json"), consumes = arrayOf("application/json"))
-class AnniversaryController(@Autowired val service: AnniversaryService) {
+internal class AnniversaryController(@Autowired private val service: AnniversaryService) {
 
     @GetMapping("/{id}")
     fun getById(@PathParam("id") id: String): AnniversaryResponse {
-        return AnniversaryResponse(service.findById(id), "")
+        return service.findById(id)
     }
 
     @GetMapping
     fun list(): AnniversaryResponse {
-        return AnniversaryResponse(service.listAll(), "")
+        return service.listAll()
     }
 
     @PostMapping
@@ -23,13 +23,8 @@ class AnniversaryController(@Autowired val service: AnniversaryService) {
         return service.create(anniversary)
     }
 
-    @PutMapping("/{id}")
-    fun update(@PathParam("id") id: String, @RequestBody anniversary: Anniversary): AnniversaryResponse {
-
-        if (id != anniversary.id) {
-            return AnniversaryResponse(Anniversary.Empty(), "error_path_id_does_not_match_object_id")
-        }
-
+    @PutMapping
+    fun update(@RequestBody anniversary: Anniversary): AnniversaryResponse {
         return service.update(anniversary)
     }
 
