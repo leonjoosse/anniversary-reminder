@@ -1,4 +1,4 @@
-package nl.leonjoosse.anniversaryreminder.reminder
+package nl.leonjoosse.anniversaryreminder.anniversary
 
 import org.junit.Before
 import org.junit.Test

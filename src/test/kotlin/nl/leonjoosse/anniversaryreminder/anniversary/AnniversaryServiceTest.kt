@@ -1,4 +1,4 @@
-package nl.leonjoosse.anniversaryreminder.reminder
+package nl.leonjoosse.anniversaryreminder.anniversary
 
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -160,6 +160,6 @@ class AnniversaryServiceTest {
 
     private fun createValidAnniversary(): Anniversary {
         val date = Date()
-        return Anniversary("id", "name", date, true, "createdBy", date, "type")
+        return Anniversary("id", "name", date, true, 2, "createdBy", date, "type")
     }
 }

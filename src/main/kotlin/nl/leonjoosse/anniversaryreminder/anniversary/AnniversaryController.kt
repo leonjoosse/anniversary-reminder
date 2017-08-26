@@ -1,4 +1,4 @@
-package nl.leonjoosse.anniversaryreminder.reminder
+package nl.leonjoosse.anniversaryreminder.anniversary
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
