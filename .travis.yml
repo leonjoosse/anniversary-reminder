@@ -1,9 +1,24 @@
+# Travis will execute `gradlew check` by default
+
 language: java
 jdk:
   - oraclejdk8
 
-# By default, gradlew has not 'x' permission
+# By default, gradlew has no 'x' permission
 before_install:
- - chmod +x gradlew
+  - chmod +x gradlew
 
-# Travis will execute `gradlew check` by default
+# Caching recommended by Travis, as explained here:
+# https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+# End of caching
+
