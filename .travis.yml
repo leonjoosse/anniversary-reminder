@@ -1,0 +1,5 @@
+language: java
+jdk:
+  - oraclejdk8
+
+# Travis will execute `gradlew check` by default
