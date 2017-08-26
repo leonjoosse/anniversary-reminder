@@ -23,12 +23,13 @@ internal data class Anniversary(val id: String?,
 
     fun getRemindMonthDay(): MonthDay {
 
-        val remindDate : LocalDate
+        val remindDate: LocalDate
 
         if (date == null) {
             remindDate = LocalDate.now()
         } else {
-            remindDate = LocalDate.of(date.year, date.month + 1, date.date + 1)
+            // Note the +1 for month, as that is 0-11 in Date class
+            remindDate = LocalDate.of(date.year, date.month + 1, date.date)
         }
 
         return MonthDay.from(remindDate.minusDays(remindDaysInAdvance.toLong()))
